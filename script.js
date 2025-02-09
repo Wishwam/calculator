@@ -24,12 +24,12 @@ const nineBtn = document.getElementById("nine");
 
 let currentInput = "";
 
-// Function to update the input box display
+
 function updateDisplay() {
   inputBox.value = currentInput || "0";
 }
 
-// Adding number buttons event listeners
+
 sevenBtn.addEventListener("click", () => {
   currentInput += "7";
   updateDisplay();
@@ -80,7 +80,7 @@ zeroBtn.addEventListener("click", () => {
   updateDisplay();
 });
 
-// Decimal point
+
 decimalBtn.addEventListener("click", () => {
   if (!currentInput.includes(".")) {
     currentInput += ".";
@@ -88,7 +88,6 @@ decimalBtn.addEventListener("click", () => {
   }
 });
 
-// Operator buttons
 plusBtn.addEventListener("click", () => {
   currentInput += "+";
   updateDisplay();
@@ -109,38 +108,38 @@ divideBtn.addEventListener("click", () => {
   updateDisplay();
 });
 
-// Square Root button
+
 sqrtBtn.addEventListener("click", () => {
-  // Only calculate the square root if the input is a valid number
+  
   let number = parseFloat(currentInput);
   if (!isNaN(number) && number >= 0) {
     currentInput = Math.sqrt(number).toString();
     updateDisplay();
   } else {
-    currentInput = "Error"; // Handle invalid input (e.g., negative numbers)
+    currentInput = "Error"; 
     updateDisplay();
   }
 });
 
-// Clear the input
+
 clearBtn.addEventListener("click", () => {
   currentInput = "";
   updateDisplay();
 });
 
-// Delete the last character
+
 deleteBtn.addEventListener("click", () => {
   currentInput = currentInput.slice(0, -1);
   updateDisplay();
 });
 
-// Equal button to calculate the result
+
 equalsBtn.addEventListener("click", () => {
   try {
-    // Use eval to calculate the result of the mathematical expression
-    currentInput = eval(currentInput).toString(); // eval evaluates the string as a math expression
+    
+    currentInput = eval(currentInput).toString(); 
   } catch (error) {
-    currentInput = "Error"; // Display error if evaluation fails
+    currentInput = "Error"; 
   }
   updateDisplay();
 });
